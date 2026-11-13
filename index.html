@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="pt-BR" data-theme="auto">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f5f4" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#242424" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="AS Tecnical Solutions. Engenharia aplicada ao diagnóstico, desenvolvimento e integração de soluções em software e hardware.">
+  <title>AS Tecnical Solutions — Engenharia aplicada</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2048%22%3E%3Cpath%20d%3D%22M4%2043V5H31V43M4%2025H31M60%205H31V25H60V43H31%22%20fill%3D%22none%22%20stroke%3D%22%232e3436%22%20stroke-width%3D%224%22%20stroke-linecap%3D%22square%22%20stroke-linejoin%3D%22miter%22%2F%3E%3C%2Fsvg%3E">
+  <style>
+/* AS Tecnical Solutions · Adwaita GTK3 inspired · desktop/mobile only */
+:root{color-scheme:light;--bg:#f6f5f4;--paper:#fff;--paper-subtle:#f1f0ee;--ink:#2e3436;--muted:#687176;--line:#deddda;--line-strong:#bfc3c4;--accent:#3584e4;--accent-soft:rgba(53,132,228,.10);--grid:rgba(46,52,54,.045);--header:rgba(246,245,244,.92);--shadow:0 22px 65px rgba(46,52,54,.07);--stage:#efeeeb}
+@media(prefers-color-scheme:dark){html[data-theme=auto]{color-scheme:dark;--bg:#242424;--paper:#303030;--paper-subtle:#292929;--ink:#eeeeec;--muted:#b3b8b6;--line:#454545;--line-strong:#595d60;--accent:#78aeed;--accent-soft:rgba(120,174,237,.13);--grid:rgba(238,238,236,.045);--header:rgba(36,36,36,.94);--shadow:0 24px 70px rgba(0,0,0,.21);--stage:#2b2b2b}}
+html[data-theme=dark]{color-scheme:dark;--bg:#242424;--paper:#303030;--paper-subtle:#292929;--ink:#eeeeec;--muted:#b3b8b6;--line:#454545;--line-strong:#595d60;--accent:#78aeed;--accent-soft:rgba(120,174,237,.13);--grid:rgba(238,238,236,.045);--header:rgba(36,36,36,.94);--shadow:0 24px 70px rgba(0,0,0,.21);--stage:#2b2b2b}
+html[data-theme=light]{color-scheme:light;--bg:#f6f5f4;--paper:#fff;--paper-subtle:#f1f0ee;--ink:#2e3436;--muted:#687176;--line:#deddda;--line-strong:#bfc3c4;--accent:#3584e4;--accent-soft:rgba(53,132,228,.10);--grid:rgba(46,52,54,.045);--header:rgba(246,245,244,.92);--shadow:0 22px 65px rgba(46,52,54,.07);--stage:#efeeeb}
+*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:88px}body{margin:0;color:var(--ink);background:var(--bg);font-family:Cantarell,'Noto Sans','Segoe UI',Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}a{color:inherit;text-decoration:none}button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px}svg{display:block}h1,h2,h3,p{margin:0}::selection{color:#fff;background:#3584e4}[hidden]{display:none!important}
+.container,.header-inner{width:min(1280px,calc(100% - 88px));margin-inline:auto}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace}.eyebrow{font-size:11px;letter-spacing:.17em;font-weight:700;color:var(--muted);text-transform:uppercase}.muted{color:var(--muted)}
+/* Header */
+.site-header{height:76px;position:fixed;inset:0 0 auto;z-index:100;display:flex;align-items:center;background:var(--header);border-bottom:1px solid var(--line);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}.header-inner{display:flex;justify-content:space-between;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:12px;min-width:230px}.brand-monogram{width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--ink);border-radius:10px;font-size:20px;font-weight:800;letter-spacing:-.12em;padding-right:3px}.brand-label{display:flex;flex-direction:column;line-height:1.15;gap:5px}.brand-label strong{font-size:12px;letter-spacing:.11em}.brand-label span{font-size:9px;letter-spacing:.22em;color:var(--muted)}.nav{display:flex;align-items:center;gap:34px}.nav a{font-size:12px;font-weight:650;color:var(--muted);transition:color .2s}.nav a:hover{color:var(--ink)}.nav-right{display:flex;align-items:center;gap:10px}.theme-btn{height:38px;min-width:84px;display:flex;justify-content:center;align-items:center;gap:8px;color:var(--ink);font-size:12px;font-weight:650;background:transparent;border:1px solid var(--line);border-radius:9px}.theme-btn:hover{background:var(--paper)}.menu-btn{display:none}.btn{min-height:46px;display:inline-flex;align-items:center;justify-content:center;gap:11px;border-radius:9px;border:1px solid transparent;padding:0 19px;font-weight:700;font-size:12px;transition:background .2s,transform .2s}.btn:hover{transform:translateY(-2px)}.btn svg{width:15px;height:15px}.btn-primary{background:var(--ink);color:var(--bg)}.btn-secondary{background:transparent;border-color:var(--line-strong)}.btn-secondary:hover{background:var(--paper)}.scroll-progress{position:absolute;bottom:-1px;left:0;height:2px;width:0;background:var(--accent);transition:width .06s linear}
+/* Hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:center;padding:124px 0 76px;isolation:isolate}.hero:before{content:"";position:absolute;inset:0;z-index:-1;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:88px 88px;mask-image:linear-gradient(90deg,transparent 12%,#000 100%)}.hero-inner{display:grid;grid-template-columns:.93fr 1.07fr;gap:clamp(25px,4vw,65px);align-items:center}.hero-copy{position:relative;z-index:2}.hero h1{font-size:clamp(58px,5.95vw,98px);font-weight:650;line-height:1.045;letter-spacing:-.078em;max-width:740px}.accent-word{color:var(--accent)}.hero-desc{margin-top:30px;max-width:540px;font-size:clamp(16px,1.25vw,19px);line-height:1.8;color:var(--muted)}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:33px}.hero-meta{display:flex;align-items:center;gap:12px;margin-top:55px;font-size:12px;color:var(--muted)}.scroll-mark{width:26px;height:39px;border:1px solid var(--line-strong);border-radius:20px;display:grid;place-items:center}.scroll-mark:after{content:"";width:7px;height:7px;border:0;border-right:2px solid var(--accent);border-bottom:2px solid var(--accent);transform:rotate(45deg);animation:mouseHint 1.8s ease-in-out infinite}@keyframes mouseHint{50%{transform:translateY(8px) rotate(45deg);opacity:.4}}
+/* V1 isometric figure, pared down but preserving its original floating motion. */
+.hero-art{position:relative;width:100%;max-width:650px;aspect-ratio:1;place-self:center;display:grid;place-items:center;isolation:isolate}
+.hero-art:before{content:"";position:absolute;inset:16%;border-radius:50%;background:radial-gradient(ellipse,var(--accent-soft),transparent 72%);filter:blur(30px);z-index:-1;pointer-events:none}
+.hero-art .halo{position:absolute;inset:4%;border:1px solid var(--line);border-radius:50%;pointer-events:none}
+.hero-art .halo:nth-child(2){inset:16%;border-style:dashed;opacity:.75}
+.hero-graphic{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 16px 26px rgba(53,132,228,.07));animation:asFloat 8s ease-in-out infinite;transform-origin:center center}
+.hero-blue-traces{animation:asTrace 14s linear infinite}
+@keyframes asFloat{50%{transform:translateY(-15px)}}
+@keyframes asTrace{to{stroke-dashoffset:-168}}
+/* Method, one desktop scroll story */
+.story{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(35px,5vw,92px);padding:95px 0 110px;align-items:start}.sticky-visual{position:sticky;top:max(88px,calc((100svh - min(68svh,560px))/2));height:min(68svh,560px);min-height:390px;align-self:start;display:flex;align-items:center;justify-content:center;border:1px solid var(--line);border-radius:22px;background:var(--stage);overflow:hidden;box-shadow:var(--shadow);isolation:isolate}.sticky-visual:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:36px 36px;mask-image:radial-gradient(ellipse,#000 15%,transparent 81%)}.stage-graphic{position:relative;width:96%;max-width:490px;aspect-ratio:1;z-index:1}.stage-graphic svg{width:100%;height:100%;overflow:visible}.stage-graphic .stage-text{fill:var(--muted);font:10px ui-monospace,monospace;letter-spacing:.13em}.stage-graphic .stage-line{stroke:var(--line-strong);stroke-width:1.3;fill:none}.stage-graphic .stage-ink{stroke:var(--ink);stroke-width:1.55;fill:var(--paper)}.stage-graphic .stage-accent{stroke:var(--accent);stroke-width:1.5;fill:none}.stage-graphic .spin,.stage-graphic .explode-1,.stage-graphic .explode-2,.stage-graphic .explode-3{transform:none}.stage-number,.stage-caption{display:none}.scene{opacity:0;transform-origin:260px 260px}.scene-discovery{opacity:var(--s0,1)}.scene-design{opacity:var(--s1,0)}.scene-build{opacity:var(--s2,0)}.scene-verify{opacity:var(--s3,0)}.scan-beam{transform:translateY(calc(var(--scan,0)*89px - 34px));transform-origin:center;opacity:.86}.blueprint-module-one{transform:translate(calc((1 - var(--design,0))*33px),calc((1 - var(--design,0))*25px))}.blueprint-module-two{transform:translate(calc((1 - var(--design,0))*-33px),calc((1 - var(--design,0))*25px))}.blueprint-module-three{transform:translate(calc((1 - var(--design,0))*33px),calc((1 - var(--design,0))*-25px))}.blueprint-module-four{transform:translate(calc((1 - var(--design,0))*-33px),calc((1 - var(--design,0))*-25px))}.build-path path{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--build,0))}.build-leds{opacity:var(--build,0)}.verify-mark{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--verify,0))}.verify-ring{transform:rotate(calc(var(--verify,0)*35deg));transform-origin:260px 260px}.story-items{min-width:0}.story-intro{margin-bottom:38px}.story-heading{font-size:clamp(32px,3.5vw,52px);font-weight:650;line-height:1.12;letter-spacing:-.06em}.story-intro-copy{margin-top:21px;color:var(--muted);font-size:15px;line-height:1.8;max-width:540px}.story-unit{display:flex;flex-direction:column;justify-content:center;min-height:70svh;padding:72px 0;border-top:1px solid var(--line);opacity:.55;transform:translateY(16px);transition:opacity .35s ease,transform .35s ease}.story-unit.is-active{opacity:1;transform:none}.step-head{display:flex;align-items:center;gap:15px;margin-bottom:24px}.index{color:var(--accent);font:12px ui-monospace,monospace}.step-rule{width:38px;height:1px;background:var(--line-strong)}.story-unit h3{font-size:clamp(34px,3.9vw,55px);letter-spacing:-.065em;font-weight:650;line-height:1.1;margin-bottom:20px}.story-unit p{color:var(--muted);font-size:16px;line-height:1.85;max-width:540px}.mobile-stage{display:none}
+/* Field 02: no enclosing border: only the six field tiles */
+.section{padding:110px 0}.section-heading{display:grid;grid-template-columns:1.1fr .9fr;align-items:end;gap:50px;margin-bottom:52px}.section-heading h2{font-size:clamp(40px,4.6vw,68px);font-weight:650;line-height:1.1;letter-spacing:-.064em;max-width:700px}.section-heading p{color:var(--muted);font-size:15px;line-height:1.8;justify-self:end;max-width:500px}.domains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;border:0}.domain{display:flex;flex-direction:column;justify-content:space-between;min-height:227px;border:1px solid var(--line);border-radius:14px;background:var(--paper);padding:25px 24px;transition:opacity .5s,transform .5s,border-color .2s,background .2s}.domain:hover{border-color:var(--line-strong)}.domain-top{display:flex;justify-content:space-between;align-items:center;color:var(--muted);font:11px ui-monospace,monospace}.domain-top svg{width:26px;height:26px;stroke:var(--accent);stroke-width:1.6;fill:none;transition:transform .65s cubic-bezier(.2,.8,.2,1)}.domain h3{font-size:22px;line-height:1.18;font-weight:650;letter-spacing:-.04em;margin-top:25px}.domain p{font-size:13px;line-height:1.72;color:var(--muted);margin-top:10px;max-width:320px}.motion-ready .domain:not(.in-view){opacity:.78;transform:translateY(13px)}.domain.in-view{opacity:1;transform:none}.motion-ready .domain:not(.in-view) svg{transform:scale(.83) rotate(-10deg)}.domain.in-view svg{transform:none}
+/* Contact */
+.contact-section{position:relative;padding:115px 0 95px;background:var(--paper-subtle)}.contact-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(36px,7vw,100px)}.contact-title{font-size:clamp(42px,5.6vw,80px);line-height:1.07;letter-spacing:-.07em;font-weight:650;margin-top:20px}.contact-copy{color:var(--muted);font-size:15px;line-height:1.86;margin-top:25px;max-width:390px}.contact-form{display:flex;flex-direction:column;gap:20px;background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:33px;box-shadow:var(--shadow)}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}.field{display:flex;flex-direction:column;gap:9px}.field label{font-size:12px;font-weight:700}.field input,.field textarea{width:100%;padding:13px 14px;background:var(--bg);color:var(--ink);border:1px solid var(--line-strong);border-radius:9px;font-size:14px;outline:0}.field textarea{min-height:150px;resize:vertical;line-height:1.7}.field input:focus,.field textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}.form-foot{display:flex;align-items:center;justify-content:space-between;gap:18px}.form-foot span{max-width:225px;color:var(--muted);font-size:11px;line-height:1.6}.status-message{font-size:12px;color:var(--muted);min-height:14px}.contact-layout{transform:translateY(calc((1 - var(--contact-progress,1))*8px))}
+/* Footer */
+.footer{border-top:1px solid var(--line);min-height:116px;display:flex;align-items:center;padding:19px 0}.footer-inner{display:flex;align-items:center;justify-content:space-between;gap:30px;min-height:70px}.footer small{color:var(--muted);font-size:11px}.footer-links{display:flex;gap:21px;align-items:center}.footer-links a{color:var(--muted);font-size:11px}.footer-links a:hover{color:var(--accent)}
+/* Exactly one viewport layout switch: mobile up to 820, desktop above 820 */
+@media(max-width:820px){
+ html{scroll-padding-top:78px}.container,.header-inner{width:calc(100% - 36px)}.site-header{height:70px}.header-inner{gap:9px}.brand{gap:8px;min-width:0}.brand-monogram{width:36px;height:36px;flex:0 0 36px;font-size:18px;border-radius:9px}.brand-label strong{font-size:clamp(9px,2.5vw,12px);letter-spacing:.075em}.brand-label span{font-size:clamp(7px,1.9vw,9px);letter-spacing:.13em}.nav-right{gap:7px}.nav-right .top-contact{display:none}.theme-btn{min-width:67px;height:36px;padding:0 8px;font-size:11px}.menu-btn{display:grid;place-items:center;width:38px;height:38px;flex:0 0 38px;background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:9px;position:relative;z-index:2}.menu-btn .burger{width:18px;height:14px;position:relative;display:block}.menu-btn .burger i{position:absolute;left:0;width:18px;height:1.75px;border-radius:2px;background:currentColor;transition:top .32s cubic-bezier(.2,.8,.2,1),transform .32s cubic-bezier(.2,.8,.2,1),opacity .2s}.menu-btn .burger i:nth-child(1){top:1px}.menu-btn .burger i:nth-child(2){top:6px}.menu-btn .burger i:nth-child(3){top:11px}.menu-btn[aria-expanded=true] .burger i:nth-child(1){top:6px;transform:rotate(45deg)}.menu-btn[aria-expanded=true] .burger i:nth-child(2){opacity:0;transform:translateX(6px)}.menu-btn[aria-expanded=true] .burger i:nth-child(3){top:6px;transform:rotate(-45deg)}.nav{display:flex;position:absolute;top:calc(100% + 8px);left:18px;right:18px;flex-direction:column;align-items:stretch;gap:0;padding:11px;background:var(--paper);border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow);opacity:0;visibility:hidden;transform:translateY(-12px) scale(.985);transform-origin:top right;pointer-events:none;transition:opacity .25s,transform .35s cubic-bezier(.2,.8,.2,1),visibility .25s;z-index:110}.nav.is-open{opacity:1;visibility:visible;transform:translateY(0) scale(1);pointer-events:auto}.nav a{padding:16px;border-radius:9px;font-size:14px;font-weight:650;opacity:0;transform:translateY(-7px);transition:opacity .25s ease,transform .25s ease,background .2s;color:var(--ink)}.nav.is-open a{opacity:1;transform:none}.nav.is-open a:nth-child(1){transition-delay:.03s}.nav.is-open a:nth-child(2){transition-delay:.075s}.nav.is-open a:nth-child(3){transition-delay:.12s}.nav a:hover{background:var(--paper-subtle)}
+ .hero{min-height:0;padding:116px 0 72px}.hero:before{background-size:70px 70px;opacity:.62;mask-image:linear-gradient(180deg,transparent,#000 55%,transparent)}.hero-inner{display:flex;flex-direction:column;gap:0;align-items:stretch}.hero h1{font-size:clamp(42px,11.1vw,76px);line-height:1.05;letter-spacing:-.075em;max-width:620px}.hero-desc{font-size:15px;line-height:1.72;margin-top:23px;max-width:650px}.hero-actions{margin-top:28px;display:grid;grid-template-columns:1fr;gap:8px}.hero-actions .btn{min-height:49px;width:100%;font-size:12px}.hero-actions .btn-secondary{border-color:transparent;min-height:40px}.hero-meta{margin-top:25px;font-size:11px;justify-content:center;text-align:center}.hero-meta span:last-child{max-width:240px}.hero-art{width:min(100%,550px);aspect-ratio:1/0.83;margin:22px auto -4px;max-width:none}.hero-art:before{inset:10%;filter:blur(15px)}.hero-graphic{height:100%;width:100%;max-height:390px;filter:none}
+ .story{display:block;padding:66px 0 58px}.sticky-visual{display:none}.story-intro{padding:0 0 29px;margin:0 0 11px;border-bottom:1px solid var(--line)}.story-heading{font-size:clamp(34px,9vw,55px);max-width:650px}.story-intro-copy{font-size:15px;line-height:1.75}.story-unit,.story-unit.is-active{min-height:0;display:flex;flex-direction:column;justify-content:flex-start;padding:36px 0 43px;border-top:0;border-bottom:1px solid var(--line);opacity:1;transform:none}.story-unit:last-child{border-bottom:0}.step-head{margin-bottom:15px}.story-unit h3{font-size:clamp(32px,8.3vw,45px);margin-bottom:8px}.story-unit p{font-size:14.5px;line-height:1.76}.mobile-stage{display:grid;place-items:center;position:relative;overflow:hidden;margin:20px 0 18px;padding:9px 12px;width:100%;min-height:174px;max-width:660px;background:transparent;border:0;border-radius:0;opacity:1;transform:none}.mobile-stage svg{width:100%;height:auto;max-height:185px;display:block;overflow:visible}.figure-tag{display:none}.mobile-stage svg .stroke-muted{fill:none;stroke:var(--line-strong);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}.mobile-stage svg .stroke-main{fill:none;stroke:var(--ink);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}.mobile-stage svg .stroke-accent{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}.mobile-stage svg .fill-paper{fill:var(--paper)}.mobile-stage svg .fill-soft{fill:var(--accent-soft)}.mobile-stage svg .dot{fill:var(--accent)}.mobile-stage svg .draw{stroke-dasharray:1;stroke-dashoffset:1}.story-unit.is-active .mobile-stage svg .draw{animation:lineDraw 2.1s cubic-bezier(.2,.8,.2,1) forwards}.story-unit .mobile-stage svg .scan{transform-origin:160px 86px;transform-box:view-box}.story-unit.is-active .art-observe .scan{animation:scanTurn 5.7s ease-in-out infinite}.story-unit .art-design .blueprint-cell{opacity:.4;transition:opacity .4s}.story-unit.is-active .art-design .blueprint-cell{opacity:1}.story-unit.is-active .art-design .blueprint-cell:nth-of-type(2){transition-delay:.18s}.story-unit.is-active .art-design .blueprint-cell:nth-of-type(3){transition-delay:.33s}.story-unit.is-active .art-verify .check-path{stroke-dasharray:1;stroke-dashoffset:0;animation:checkDraw 2s ease-out both}.motion-ready .story-unit:not(.in-view) .mobile-stage{opacity:.7;transform:translateY(8px)}.story-unit.in-view .mobile-stage{opacity:1;transform:none;transition:opacity .4s,transform .4s}@keyframes lineDraw{to{stroke-dashoffset:0}}@keyframes scanTurn{50%{transform:rotate(270deg)}to{transform:rotate(360deg)}}@keyframes checkDraw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+ .section{padding:79px 0 88px}.section-heading{display:block;margin-bottom:34px}.section-heading h2{font-size:clamp(37px,9.4vw,56px);margin-top:17px}.section-heading p{margin-top:20px;font-size:14.5px;line-height:1.72}.domains{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;border:0!important;outline:none}.domain{min-height:200px;padding:19px 15px;border:1px solid var(--line);border-radius:13px}.domain-top svg{width:27px;height:27px}.domain h3{font-size:clamp(16px,4.6vw,22px);margin-top:20px}.domain p{font-size:clamp(12px,3.3vw,14px);line-height:1.55}
+ .contact-section{padding:80px 0 65px}.contact-layout{display:block;transform:none}.contact-title{font-size:clamp(43px,10vw,70px)}.contact-copy{font-size:15px;line-height:1.75;max-width:620px}.contact-form{padding:27px 0 0;margin-top:31px;background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;box-shadow:none;max-width:none}.form-row{grid-template-columns:1fr}.field input,.field textarea{font-size:16px;background:var(--paper)}.form-foot{flex-direction:column;align-items:stretch}.form-foot span{max-width:none}.form-foot .btn{width:100%}
+ /* Individual motions for service icons — one authored behavior per subject */
+ .domain.in-view:nth-child(1) .domain-top svg{animation:iconWrite .68s cubic-bezier(.2,.8,.2,1) both}
+ .domain.in-view:nth-child(2) .domain-top svg{animation:iconChip .74s cubic-bezier(.2,.8,.2,1) both}
+ .domain.in-view:nth-child(3) .domain-top svg{animation:iconSlide .7s cubic-bezier(.2,.8,.2,1) both}
+ .domain.in-view:nth-child(4) .domain-top svg{animation:iconPulse .85s cubic-bezier(.2,.8,.2,1) both}
+ .domain.in-view:nth-child(5) .domain-top svg{animation:iconLink .78s cubic-bezier(.2,.8,.2,1) both}
+ .domain.in-view:nth-child(6) .domain-top svg{animation:iconCompute .88s cubic-bezier(.2,.8,.2,1) both}
+ @keyframes iconWrite{0%{opacity:.3;transform:translateX(-8px)}100%{opacity:1;transform:none}}
+ @keyframes iconChip{0%{opacity:.5;transform:scale(.65)}65%{transform:scale(1.08)}100%{opacity:1;transform:none}}
+ @keyframes iconSlide{0%{opacity:.4;transform:translateY(10px)}100%{opacity:1;transform:none}}
+ @keyframes iconPulse{0%{opacity:.2;transform:scaleY(.7)}65%{opacity:1;transform:scaleY(1.1)}100%{transform:none}}
+ @keyframes iconLink{0%{opacity:.5;transform:rotate(-22deg)}100%{opacity:1;transform:none}}
+ @keyframes iconCompute{0%{opacity:.5;transform:rotate(34deg) scale(.8)}100%{opacity:1;transform:none}}
+ .footer{padding:30px 0;min-height:190px}.footer-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:17px;min-height:145px}.footer-inner .brand{justify-content:center}.footer-links{justify-content:center;flex-wrap:wrap;gap:14px 20px}
+}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}.story-unit{opacity:1!important;transform:none!important}.mobile-stage{opacity:1!important;transform:none!important}.scene-discovery{opacity:1!important}.scene:not(.scene-discovery){opacity:0!important}.domain{opacity:1!important;transform:none!important}.contact-layout{transform:none!important}}
+
+  
+/* Section 02 — original V1 gridded taxonomy, shared dividers rather than six floating cards. */
+#atuacao{position:relative;isolation:isolate}
+#atuacao::before{content:"";position:absolute;top:-220px;left:0;right:0;height:760px;pointer-events:none;z-index:-1;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:84px 84px;opacity:.9;-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 60%,transparent 100%);mask-image:linear-gradient(to bottom,transparent 0%,#000 24%,#000 60%,transparent 100%)}
+#atuacao>.container{position:relative;z-index:1}
+#atuacao .domains{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line);border-left:1px solid var(--line);border-radius:0;background:transparent}
+#atuacao .domain{min-height:219px;border:0;border-right:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;background:transparent;padding:28px 27px 30px}
+#atuacao .domain:hover{background:var(--accent-soft)}
+#atuacao .domain h3{margin-top:22px}
+/* Blue connectors use dashed traces; checks and peripheral outlines keep solid strokes. */
+.stage-graphic .scene-design > g[stroke="var(--accent)"] path{stroke-dasharray:5 7}
+.stage-graphic .scene-discovery .scan-beam>path:first-child{stroke-dasharray:7 7}
+.stage-graphic .scene-build g[stroke="var(--ink)"] path[stroke="var(--accent)"]{stroke-dasharray:5 7}
+.mobile-stage.art-observe path.stroke-accent:not(.scan),.mobile-stage.art-design path.stroke-accent,.mobile-stage.art-connect g.stroke-accent path{stroke-dasharray:5 7}
+.mobile-stage .draw{stroke-dasharray:1;stroke-dashoffset:1}
+@keyframes asConnect{to{stroke-dashoffset:-84}}
+@media(max-width:820px){.story-unit.is-active .art-connect g.stroke-accent path{animation:asConnect 8s linear infinite}}
+@media(max-width:820px){
+  .hero{padding-bottom:45px}
+  .hero-actions{margin-top:27px}
+  .hero-meta{margin-top:30px;justify-content:center;text-align:center;gap:10px}
+  .hero-meta span:last-child{max-width:245px;line-height:1.45}
+  .hero-art{width:min(100%,420px);max-width:420px;aspect-ratio:1;margin:14px auto 0}
+  .hero-graphic{height:100%;max-height:none}
+  .story{padding-top:42px;padding-bottom:42px}
+  .story-intro{padding-bottom:26px}
+  .story-unit,.story-unit.is-active{padding:32px 0 35px}
+  .section{padding:68px 0 76px}
+  .section-heading{margin-bottom:30px}
+  #atuacao::before{top:-160px;height:620px;background-size:60px 60px}
+  #atuacao .domains{grid-template-columns:repeat(auto-fit,minmax(min(100%,162px),1fr))}
+  #atuacao .domain{min-height:200px;padding:22px 18px 24px}
+  #atuacao .domain h3{font-size:clamp(16px,4.4vw,20px);line-height:1.22;margin-top:21px}
+  #atuacao .domain p{font-size:clamp(12.5px,3.2vw,14px);line-height:1.6}
+}
+@media(prefers-reduced-motion:reduce){.hero-graphic,.hero-blue-traces{animation:none!important}}
+
+
+/* AS V9: squared, joined A/S lettermark (no enclosing rounded plaque). */
+.brand-monogram{width:57px;height:43px;flex:0 0 57px;border:0;border-radius:0;padding:0;display:grid;place-items:center;color:var(--ink);line-height:0}
+.brand-monogram svg{display:block;width:100%;height:100%}
+.footer .brand-monogram{width:49px!important;height:36px!important;flex-basis:49px!important}
+
+/* Section 02: preserve a continuous shared-border grid while shielding the patterned backdrop. */
+#atuacao .domains{position:relative;z-index:2;border-top:1px solid var(--line-strong)!important;border-left:1px solid var(--line-strong)!important;border-right:0!important;border-bottom:0!important;background:var(--paper)}
+#atuacao .domain{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important;background:transparent}
+#atuacao .domain:hover{background:var(--accent-soft)}
+#atuacao::before{pointer-events:none;opacity:.74;mask-image:linear-gradient(to bottom,transparent 0%,#000 23%,#000 45%,transparent 78%);-webkit-mask-image:linear-gradient(to bottom,transparent 0%,#000 23%,#000 45%,transparent 78%)}
+
+/* Same four illustrations on desktop and mobile, with continuous scroll-driven crossfades. */
+.sticky-visual{--s0:1;--s1:0;--s2:0;--s3:0}
+.desktop-stage-stack{width:min(92%,510px);aspect-ratio:320/192;z-index:1;position:relative;display:grid;place-items:center;isolation:isolate}
+.desktop-scene{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;will-change:opacity,transform}
+.desktop-scene svg{display:block;width:100%;height:100%;overflow:visible}
+.desktop-scene[data-index="0"]{opacity:var(--s0);transform:translateY(calc((1 - var(--s0))*16px)) scale(calc(.97 + var(--s0)*.03))}
+.desktop-scene[data-index="1"]{opacity:var(--s1);transform:translateY(calc((1 - var(--s1))*16px)) scale(calc(.97 + var(--s1)*.03))}
+.desktop-scene[data-index="2"]{opacity:var(--s2);transform:translateY(calc((1 - var(--s2))*16px)) scale(calc(.97 + var(--s2)*.03))}
+.desktop-scene[data-index="3"]{opacity:var(--s3);transform:translateY(calc((1 - var(--s3))*16px)) scale(calc(.97 + var(--s3)*.03))}
+.desktop-scene svg .stroke-muted{fill:none;stroke:var(--line-strong);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.desktop-scene svg .stroke-main{fill:none;stroke:var(--ink);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.desktop-scene svg .stroke-accent{fill:none;stroke:var(--accent);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.desktop-scene svg .fill-paper{fill:var(--paper)}
+.desktop-scene svg .fill-soft{fill:var(--accent-soft)}
+.desktop-scene svg .dot{fill:var(--accent)}
+.desktop-scene .art-observe .scan,.desktop-scene.art-observe .scan{transform-origin:160px 86px;transform-box:view-box;animation:scanTurn 9s ease-in-out infinite}
+.desktop-scene.art-design .blueprint-cell{transition:opacity .25s ease;opacity:calc(.6 + var(--s1)*.4)}
+.desktop-scene.art-connect .draw{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--s2))}
+.desktop-scene.art-verify .check-path{stroke-dasharray:1;stroke-dashoffset:calc(1 - var(--s3))}
+.desktop-scene svg .stroke-accent[stroke-dasharray],.desktop-scene svg .stroke-accent path{stroke-dasharray:5 7}
+.sticky-visual::after{content:"";position:absolute;left:50%;bottom:24px;transform:translateX(-50%);width:94px;height:1px;background:linear-gradient(90deg,transparent,var(--line-strong),transparent);pointer-events:none}
+@media(max-width:820px){
+  .brand-monogram{width:45px;height:35px;flex:0 0 45px}
+  .desktop-stage-stack{display:none}
+  /* top and left borders must remain visible over the mobile defaults */
+  #atuacao .domains{border-top:1px solid var(--line-strong)!important;border-left:1px solid var(--line-strong)!important;background:var(--paper)}
+  #atuacao .domain{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .desktop-scene{transform:none!important}
+  .desktop-scene[data-index="0"]{opacity:1!important}
+  .desktop-scene:not([data-index="0"]){opacity:0!important}
+  .desktop-scene svg *{animation:none!important}
+}
+
+
+/* V10 · Interactive assembly: the problem's separate parts become one system. */
+.hero-art .halo{inset:10%;border-style:solid;opacity:.58}
+.hero-graphic{filter:drop-shadow(0 16px 26px rgba(53,132,228,.055));animation:asFloat 8s ease-in-out infinite}
+.hero-graphic .assembly-top,.hero-graphic .assembly-left,.hero-graphic .assembly-right{transform-box:view-box;will-change:transform;}
+.hero-graphic .assembly-top{animation:joinTop 10.8s cubic-bezier(.43,0,.24,1) infinite}
+.hero-graphic .assembly-left{animation:joinLeft 10.8s cubic-bezier(.43,0,.24,1) infinite}
+.hero-graphic .assembly-right{animation:joinRight 10.8s cubic-bezier(.43,0,.24,1) infinite}
+.hero-graphic .assembly-flow{animation:connectionPulse 10.8s ease-in-out infinite}
+.hero-graphic .assembly-complete{animation:connectionPulse 10.8s ease-in-out infinite}
+.hero-graphic .assembly-flow path{animation:asTrace 9s linear infinite}
+@keyframes joinTop{0%,12%,100%{transform:translateY(-34px)}36%,73%{transform:translateY(0)}90%{transform:translateY(-34px)}}
+@keyframes joinLeft{0%,12%,100%{transform:translate(-26px,16px)}36%,73%{transform:translate(0,0)}90%{transform:translate(-26px,16px)}}
+@keyframes joinRight{0%,12%,100%{transform:translate(26px,16px)}36%,73%{transform:translate(0,0)}90%{transform:translate(26px,16px)}}
+@keyframes connectionPulse{0%,28%,85%,100%{opacity:0}40%,70%{opacity:1}}
+/* Maintain the shared border grid, but reorganize before text becomes cramped. */
+#atuacao .domains{grid-template-columns:repeat(auto-fit,minmax(min(100%,350px),1fr))!important}
+/* Center the scrolling chevron both vertically and horizontally inside the mouse. */
+.scroll-mark{width:28px;height:40px;min-width:28px;display:grid;place-items:center;padding:0;line-height:0;position:relative}
+.scroll-mark::after{content:none!important}
+.scroll-mark svg{display:block;width:17px;height:17px;color:var(--accent);animation:scrollChevron 1.7s ease-in-out infinite;transform:translateY(-2px)}
+@keyframes scrollChevron{0%,100%{transform:translateY(-2px);opacity:.8}50%{transform:translateY(3px);opacity:1}}
+@media(max-width:820px){.hero-meta{align-items:center;justify-content:center;gap:11px}}
+@media(prefers-reduced-motion:reduce){.hero-graphic .assembly-top,.hero-graphic .assembly-left,.hero-graphic .assembly-right{animation:none!important;transform:none!important}.hero-graphic .assembly-flow,.hero-graphic .assembly-complete{animation:none!important;opacity:1!important}.hero-graphic .assembly-flow path,.scroll-mark svg{animation:none!important}}
+
+</style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="#inicio" aria-label="AS Tecnical Solutions, voltar ao início"><span class="brand-monogram"><svg viewBox="0 0 64 48" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M4 43V5H31V43M4 25H31M60 5H31V25H60V43H31" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg></span><span class="brand-label"><strong>TECNICAL SOLUTIONS</strong><span>ENGENHARIA APLICADA</span></span></a>
+      <nav class="nav" id="siteNav" aria-label="Navegação principal"><a href="#abordagem">Método</a><a href="#atuacao">Atuação</a><a href="#contato">Contato</a></nav>
+      <div class="nav-right">
+        <button class="menu-btn" id="menuToggle" type="button" aria-controls="siteNav" aria-expanded="false" aria-label="Abrir menu de navegação"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+        <button id="themeToggle" class="theme-btn" aria-label="Alternar tema" title="Alternar tema"><span id="themeIcon">◐</span> <span id="themeText">Auto</span></button>
+        <a class="btn btn-primary top-contact" href="#contato">Apresentar demanda <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+      </div>
+    </div><div id="scrollProgress" class="scroll-progress"></div>
+  </header>
+  <main>
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          
+          <h1 id="heroTitle">O ponto de partida é o <span class="accent-word">problema.</span></h1>
+          <p class="hero-desc">Investigação e resolução de demandas técnicas e operacionais, com desenvolvimento de software, hardware, automação e integração de sistemas conforme as necessidades de cada projeto.</p>
+          <div class="hero-actions"><a class="btn btn-primary" href="#contato">Apresentar uma demanda <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>
+          <div class="hero-meta"><span class="scroll-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m6.5 9.5 5.5 5.5 5.5-5.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Explore nossa abordagem rolando para baixo</span></div>
+        </div>
+        <div class="hero-art" aria-label="Três peças inicialmente separadas convergem e se encaixam em um único sistema integrado.">
+  <span class="halo" aria-hidden="true"></span>
+  <svg class="hero-graphic" viewBox="0 0 520 520" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Peças separadas se aproximam, conectam e formam um cubo funcional. Ao completar a estrutura, uma ligação azul atravessa seu centro.">
+    <g class="assembly" stroke-linejoin="round" stroke-width="1.8">
+      <g class="assembly-top">
+        <path d="M260 149 384 217 260 285 136 217Z" fill="var(--paper)" stroke="var(--ink)"/>
+        <path d="M260 183 328 217 260 253 192 217Z" fill="var(--accent-soft)" stroke="var(--accent)" stroke-width="1.75" stroke-dasharray="5 7"/>
+      </g>
+      <g class="assembly-left">
+        <path d="M136 217v91l124 68v-91Z" fill="var(--paper-subtle)" stroke="var(--ink)"/>
+      </g>
+      <g class="assembly-right">
+        <path d="M384 217v91l-124 68v-91Z" fill="var(--stage)" stroke="var(--ink)"/>
+      </g>
+    </g>
+    <g class="assembly-complete" fill="var(--accent)">
+      <circle cx="260" cy="149" r="4"/>
+      <circle cx="136" cy="217" r="4"/>
+      <circle cx="384" cy="217" r="4"/>
+    </g>
+    <g class="assembly-guides" fill="none" stroke="var(--line-strong)" stroke-width="1.3" stroke-dasharray="3 10">
+      <path d="M260 68v65"/>
+      <path d="M62 217h54"/>
+      <path d="M404 217h54"/>
+    </g>
+  </svg>
+</div>
+      </div>
+    </section>
+<section class="container story" id="abordagem" aria-label="Nossa abordagem">
+      <div class="sticky-visual" id="storyVisual">
+        
+        <div class="desktop-stage-stack" id="stageGraphic" aria-hidden="true"></div>
+        <div class="stage-caption"><span id="stageStep">01 / ENTENDIMENTO</span></div>
+      </div>
+      <div class="story-items">
+        <div class="story-intro">
+          <span class="eyebrow">01 / Método de trabalho</span>
+          <h2 class="story-heading" style="margin-top:18px">Do entendimento à entrega.</h2>
+          <p class="story-intro-copy">Partimos do contexto operacional e das condições reais de cada demanda. A análise, a definição técnica, a implementação e a validação são conduzidas de acordo com os requisitos de cada projeto.</p>
+        </div>
+        <article class="story-unit is-active" data-stage="01 / ENTENDIMENTO"><div class="step-head"><span class="index">01</span><span class="step-rule"></span><span class="eyebrow">Levantamento</span></div><h3>Entender</h3><figure class="mobile-stage art-observe" aria-hidden="true"><svg viewBox="0 0 320 174" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <circle cx="160" cy="85" r="57" class="stroke-muted"/>
+ <circle cx="160" cy="85" r="40" class="stroke-muted" opacity=".65"/>
+ <path d="M160 85L160 38" class="stroke-accent scan"/>
+ <circle cx="160" cy="85" r="7" class="dot"/>
+ <g class="fill-paper" stroke="var(--line-strong)" stroke-width="1.6"><rect x="22" y="53" width="72" height="61" rx="12"/><rect x="226" y="53" width="72" height="61" rx="12"/></g>
+ <g class="stroke-muted"><path d="M46 73h26m-26 12h17"/><path d="M249 74h26m-26 12h17"/></g>
+ <circle cx="221" cy="39" r="5" class="dot"/><circle cx="112" cy="139" r="5" class="dot"/>
+ <path d="M94 85h9m114 0h9" class="stroke-accent"/>
+ </svg></figure><p>Mapeamos o funcionamento atual, as dificuldades encontradas e as condições em que o sistema deverá operar. O levantamento estabelece os requisitos e as restrições que orientarão as próximas decisões, inclusive com visita técnica quando necessário.</p></article>
+        <article class="story-unit" data-stage="02 / PROJETO"><div class="step-head"><span class="index">02</span><span class="step-rule"></span><span class="eyebrow">Definição técnica</span></div><h3>Projetar</h3><figure class="mobile-stage art-design" aria-hidden="true"><svg viewBox="0 0 320 174" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <rect x="45" y="16" width="230" height="143" rx="14" fill="var(--paper-subtle)" stroke="var(--line-strong)" stroke-width="1.3"/>
+ <path d="M45 43h230" class="stroke-muted"/><circle cx="63" cy="30" r="3" class="dot"/><circle cx="75" cy="30" r="3" fill="var(--line-strong)"/>
+ <g class="blueprint-cell"><rect x="70" y="64" width="62" height="45" rx="8" class="fill-paper" stroke="var(--ink)" stroke-width="1.3"/><path d="M84 77h35m-35 10h23" class="stroke-muted"/></g>
+ <g class="blueprint-cell"><rect x="187" y="64" width="62" height="45" rx="8" class="fill-paper" stroke="var(--ink)" stroke-width="1.3"/><path d="M201 77h35m-35 10h23" class="stroke-muted"/></g>
+ <g class="blueprint-cell"><rect x="132" y="121" width="56" height="25" rx="6" class="fill-soft" stroke="var(--accent)" stroke-width="1.3"/><path d="M144 134h31" class="stroke-accent"/></g>
+ <path d="M132 86h55M101 109v25h31m87-25v25h-31" class="stroke-accent"/>
+ </svg></figure><p>A partir dos requisitos, avaliamos alternativas e definimos a arquitetura, os componentes envolvidos, as integrações necessárias e os critérios de validação. A proposta técnica delimita o escopo e fundamenta as decisões de implementação.</p></article>
+        <article class="story-unit" data-stage="03 / IMPLEMENTAÇÃO"><div class="step-head"><span class="index">03</span><span class="step-rule"></span><span class="eyebrow">Desenvolvimento e integração</span></div><h3>Implementar</h3><figure class="mobile-stage art-connect" aria-hidden="true"><svg viewBox="0 0 320 174" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <g class="fill-paper" stroke="var(--ink)" stroke-width="1.4"><rect x="30" y="21" width="89" height="52" rx="11"/><rect x="30" y="101" width="89" height="52" rx="11"/><rect x="211" y="61" width="79" height="52" rx="11"/></g>
+ <g class="stroke-muted"><path d="M48 42h44M48 52h28M48 122h44M48 132h28M228 82h40M228 92h24"/></g>
+ <g class="stroke-accent"><path d="M119 47h30v40h62"/><path d="M119 127h30V87"/></g>
+ <circle cx="149" cy="87" r="4" class="dot"/>
+ <circle cx="192" cy="87" r="4" class="dot"/>
+ </svg></figure><p>Desenvolvemos a solução considerando as características do ambiente existente, a compatibilidade entre os componentes e os requisitos definidos. Testes e verificações acompanham a implementação para identificar e corrigir problemas.</p></article>
+        <article class="story-unit" data-stage="04 / VALIDAÇÃO"><div class="step-head"><span class="index">04</span><span class="step-rule"></span><span class="eyebrow">Implantação</span></div><h3>Entregar</h3><figure class="mobile-stage art-verify" aria-hidden="true"><svg viewBox="0 0 320 174" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+ <rect x="58" y="19" width="204" height="134" rx="15" class="fill-paper" stroke="var(--line-strong)" stroke-width="1.4"/>
+ <path d="M58 49h204" class="stroke-muted"/><circle cx="76" cy="34" r="3" fill="var(--line-strong)"/><circle cx="89" cy="34" r="3" fill="var(--line-strong)"/>
+ <path d="M79 72h69M79 89h51M79 105h60" class="stroke-muted"/>
+ <circle cx="203" cy="99" r="39" class="fill-soft" stroke="var(--accent)" stroke-width="1.8"/>
+ <path class="stroke-accent check-path" d="M184 99l13 13 25-27" stroke-width="4" pathLength="1"/>
+ <path d="M79 129h80" class="stroke-muted"/>
+ </svg></figure><p>A solução é verificada nas condições previstas, confrontada com os critérios acordados e preparada para implantação. A entrega inclui a documentação e as orientações necessárias à sua operação e manutenção.</p></article>
+      </div>
+    </section>
+    <section class="section" id="atuacao"><div class="container">
+      <div class="section-heading"><div><span class="eyebrow">02 / Campos de atuação</span><h2 style="margin-top:19px">Cada contexto estabelece suas exigências.</h2></div><p>As disciplinas envolvidas dependem dos objetivos, das restrições e das condições técnicas de cada projeto.</p></div>
+      <div class="domains">
+        <div class="domain"><div class="domain-top"><span>01</span><svg viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 4l-4 16"/></svg></div><div><h3>Software e sistemas</h3><p>Aplicações personalizadas, sistemas internos, APIs e serviços.</p></div></div>
+        <div class="domain"><div class="domain-top"><span>02</span><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14" rx="1"/><path d="M9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4"/></svg></div><div><h3>Hardware e eletrônica</h3><p>Desenvolvimento e integração de dispositivos, interfaces eletrônicas e instrumentação.</p></div></div>
+        <div class="domain"><div class="domain-top"><span>03</span><svg viewBox="0 0 24 24"><path d="M4 7h16v10H4zM8 10h2m-2 4h8M2 3h20v18H2z"/></svg></div><div><h3>Sistemas embarcados</h3><p>Firmware, controle de periféricos e aplicações para dispositivos dedicados.</p></div></div>
+        <div class="domain"><div class="domain-top"><span>04</span><svg viewBox="0 0 24 24"><path d="M3 12h5l3-5 3 10 3-5h4M2 4h20v16H2z"/></svg></div><div><h3>Sistemas operacionais</h3><p>Componentes de sistema, ambientes Linux personalizados e ferramentas de baixo nível.</p></div></div>
+        <div class="domain"><div class="domain-top"><span>05</span><svg viewBox="0 0 24 24"><circle cx="4" cy="12" r="2"/><circle cx="20" cy="5" r="2"/><circle cx="20" cy="19" r="2"/><path d="m6 11 12-5M6 13l12 5"/></svg></div><div><h3>Integração e automação</h3><p>Integração entre sistemas, equipamentos, dados e processos operacionais.</p></div></div>
+        <div class="domain"><div class="domain-top"><span>06</span><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v6m0 8v6M2 12h6m8 0h6M5 5l4 4m6 6 4 4M19 5l-4 4m-6 6-4 4"/></svg></div><div><h3>Computação e IA</h3><p>Processamento de dados, inferência local e aplicações computacionais especializadas.</p></div></div>
+      </div>
+    </div></section>
+    <!-- Área reservada exclusivamente a trabalhos de clientes.
+         Manter oculta até existir um case autorizado e verificável. -->
+    <section id="clientes" hidden aria-label="Trabalhos para clientes"></section>
+    <section class="contact-section" id="contato"><div class="container contact-layout">
+      <div><span class="eyebrow">03 / Contato</span><h2 class="contact-title">Apresente o contexto.</h2><p class="contact-copy">Não é necessário chegar com uma especificação pronta. Descreva o que acontece na sua operação, o que precisa ser resolvido e as limitações conhecidas. A partir disso, podemos avaliar a demanda e definir os próximos passos técnicos.</p></div>
+      <form class="contact-form" id="contactForm"><div class="form-row"><div class="field"><label for="fullName">Nome</label><input id="fullName" name="fullName" placeholder="Seu nome" autocomplete="name" required maxlength="100"></div><div class="field"><label for="company">Empresa / organização</label><input id="company" name="company" placeholder="Opcional" autocomplete="organization" maxlength="100"></div></div><div class="field"><label for="brief">Qual é a necessidade?</label><textarea id="brief" name="brief" placeholder="Descreva o problema, o contexto e qualquer restrição relevante..." required minlength="12" maxlength="2500"></textarea></div><div class="form-foot"><span>O envio abre uma conversa no WhatsApp. Nenhum dado é armazenado pelo site.</span><button class="btn btn-primary" type="submit">Abrir WhatsApp <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div><div class="status-message" id="contactStatus" role="status" aria-live="polite"></div></form>
+    </div></section>
+  </main>
+  <footer class="footer"><div class="container footer-inner"><a href="#inicio" class="brand" style="min-width:0"><span class="brand-monogram"><svg viewBox="0 0 64 48" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg"><path d="M4 43V5H31V43M4 25H31M60 5H31V25H60V43H31" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="square" stroke-linejoin="miter"/></svg></span><span class="brand-label"><strong>TECNICAL SOLUTIONS</strong><span>ENGENHARIA APLICADA</span></span></a><small>© <span id="year"></span> AS Tecnical Solutions.</small><div class="footer-links"><a href="#atuacao">Atuação</a><a href="projetos/index.html">Projetos independentes</a><a href="#contato">Contato</a></div></div></footer>
+<script>
+  /* WhatsApp comercial informado pelo responsável. */
+  const WHATSAPP_NUMBER = '5524998683914';
+  const root = document.documentElement;
+  const themeToggle = document.querySelector('#themeToggle');
+  const themeText = document.querySelector('#themeText');
+  const themeIcon = document.querySelector('#themeIcon');
+  const themes = ['auto','light','dark'];
+  function applyTheme(mode){
+    root.dataset.theme = mode;
+    const label = {auto:'Auto',light:'Claro',dark:'Escuro'};
+    const icon = {auto:'◐',light:'☀',dark:'☾'};
+    themeText.textContent = label[mode]; themeIcon.textContent = icon[mode];
+    themeToggle.setAttribute('aria-label',`Tema: ${label[mode]}. Clique para alternar.`);
+    try{localStorage.setItem('as-theme',mode)}catch(e){}
+  }
+  let saved='auto';try{saved=localStorage.getItem('as-theme')||'auto'}catch(e){}
+  applyTheme(themes.includes(saved)?saved:'auto');
+  themeToggle.addEventListener('click',()=>applyTheme(themes[(themes.indexOf(root.dataset.theme)+1)%themes.length]));
+  document.querySelector('#year').textContent=new Date().getFullYear();
+
+  const menuToggle=document.querySelector('#menuToggle');
+  const siteNav=document.querySelector('#siteNav');
+  function closeMenu(){siteNav.classList.remove('is-open');menuToggle.setAttribute('aria-expanded','false');menuToggle.setAttribute('aria-label','Abrir menu de navegação')}
+  menuToggle.addEventListener('click',()=>{
+    const opened=siteNav.classList.toggle('is-open');
+    menuToggle.setAttribute('aria-expanded',String(opened));
+    menuToggle.setAttribute('aria-label',opened?'Fechar menu de navegação':'Abrir menu de navegação');
+  });
+  siteNav.querySelectorAll('a').forEach(link=>link.addEventListener('click',closeMenu));
+  document.addEventListener('keydown',event=>{if(event.key==='Escape')closeMenu()});
+  document.addEventListener('click',event=>{if(!siteNav.contains(event.target)&&!menuToggle.contains(event.target))closeMenu()});
+  window.matchMedia('(min-width:821px)').addEventListener?.('change',closeMenu);
+
+  const story=document.querySelector('.story');
+  const storyUnits=[...document.querySelectorAll('.story-unit')];
+  // Exactly the same vector illustrations are reused for both desktop and mobile.
+  const desktopStack=document.querySelector('#stageGraphic');
+  const sourceFigures=[...document.querySelectorAll('.story-unit .mobile-stage')];
+  sourceFigures.forEach((figure,i)=>{
+    const scene=document.createElement('div');
+    scene.className='desktop-scene '+[...figure.classList].filter(c=>c!=='mobile-stage').join(' ');
+    scene.dataset.index=String(i);
+    const artwork=figure.querySelector('svg').cloneNode(true);
+    artwork.setAttribute('aria-hidden','true');
+    scene.appendChild(artwork);
+    desktopStack.appendChild(scene);
+  });
+  const storyVisual=document.querySelector('#storyVisual');
+  const stageStep=document.querySelector('#stageStep');
+  const progressEl=document.querySelector('#scrollProgress');
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+  const revealTargets=document.querySelectorAll('.domain, .story-unit');
+  let raf=0;
+  const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+  const ease=x=>x*x*(3-2*x);
+  function update(){
+    raf=0;
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    progressEl.style.width=(max>0?Math.min(100,window.scrollY/max*100):0)+'%';
+    const reference=window.innerWidth<=820?Math.min(window.innerHeight-100, 78+Math.min(260,window.innerHeight*.27)+Math.min(190,window.innerHeight*.24)):window.innerHeight*.52;
+    const anchors=storyUnits.map(unit=>{
+      const r=unit.getBoundingClientRect();return r.top+r.height/2;
+    });
+    // A normalized stage position, 0→3, interpolates between the actual content sections.
+    let position=0;
+    if(reference<=anchors[0])position=0;
+    else if(reference>=anchors[anchors.length-1])position=anchors.length-1;
+    else for(let i=0;i<anchors.length-1;i++){
+      if(reference>=anchors[i]&&reference<anchors[i+1]){
+        position=i+ease(clamp((reference-anchors[i])/(anchors[i+1]-anchors[i])));
+        break;
+      }
+    }
+    if(!reduced.matches){
+      for(let i=0;i<4;i++){
+        const weight=clamp(1-Math.abs(position-i));
+        storyVisual.style.setProperty('--s'+i,weight.toFixed(4));
+      }
+      storyVisual.style.setProperty('--scan',clamp(position/1).toFixed(4));
+      storyVisual.style.setProperty('--design',clamp(position-0.35).toFixed(4));
+      storyVisual.style.setProperty('--build',clamp(position-1.25).toFixed(4));
+      storyVisual.style.setProperty('--verify',clamp(position-2.1).toFixed(4));
+    }
+    const active=Math.round(position);
+    storyUnits.forEach((el,i)=>el.classList.toggle('is-active',i===active));
+    if(stageStep)stageStep.textContent=storyUnits[active]?.dataset.stage||'01 / ENTENDIMENTO';
+    const contact=document.querySelector('#contato');
+    if(contact){
+      const rect=contact.getBoundingClientRect();
+      contact.style.setProperty('--contact-progress',reduced.matches?'1':ease(clamp((window.innerHeight-rect.top)/(window.innerHeight*.85))).toFixed(4));
+    }
+  }
+  if('IntersectionObserver' in window&&!reduced.matches){
+    const reveal=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in-view');reveal.unobserve(entry.target)}});
+    },{threshold:.17,rootMargin:'0px 0px -15px 0px'});
+    revealTargets.forEach((el)=>reveal.observe(el));
+    document.documentElement.classList.add('motion-ready');
+  }else revealTargets.forEach(el=>el.classList.add('in-view'));
+  window.addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(update)},{passive:true});
+  window.addEventListener('resize',()=>{if(!raf)raf=requestAnimationFrame(update)});
+  reduced.addEventListener?.('change',()=>{if(!raf)raf=requestAnimationFrame(update)});
+  update();
+  document.querySelector('#contactForm').addEventListener('submit',async event=>{
+    event.preventDefault();
+    const name=document.querySelector('#fullName').value.trim();
+    const company=document.querySelector('#company').value.trim();
+    const brief=document.querySelector('#brief').value.trim();
+    const msg=`Olá, AS Tecnical Solutions. Gostaria de apresentar uma demanda técnica.\n\nNome: ${name}\nEmpresa: ${company||'Não informada'}\n\nContexto e necessidade:\n${brief}`;
+    const status=document.querySelector('#contactStatus');
+    if(WHATSAPP_NUMBER && /^\d{10,15}$/.test(WHATSAPP_NUMBER)){
+      window.open('https://wa.me/'+WHATSAPP_NUMBER+'?text='+encodeURIComponent(msg),'_blank','noopener,noreferrer');
+      status.textContent='Mensagem preparada no WhatsApp. Confirme o envio na nova janela.';
+    }else{
+      try{await navigator.clipboard.writeText(msg);status.textContent='Demonstração: mensagem copiada. Defina WHATSAPP_NUMBER no HTML antes de publicar para habilitar o contato direto.'}
+      catch(e){status.textContent='Demonstração: configure WHATSAPP_NUMBER no HTML antes de publicar para habilitar o contato comercial.'}
+    }
+  });
+</script>
+</body>
+</html>
